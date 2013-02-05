@@ -1,0 +1,36 @@
+global class AgreementsBatch implements Database.Batchable<sObject>{
+
+    global AgreementsBatch(String q){
+    
+        query = q;
+    }
+
+    global Database.QueryLocator start(Database.BatchableContext BC){
+        
+    	return Database.getQueryLocator(query);
+    }
+    
+    global void execute(Database.BatchableContext BC, List<sObject> listSObjects){
+    
+      //Process records here
+      //within the scope given.
+    }
+    
+    global void finish(Database.BatchableContext BC) {
+    
+      //Post-process here
+      //eg.: email after process
+    }
+    
+    static testMethod void testAgreementsBatch(){
+
+        test.starttest();
+		    String q = 'SELECT Name
+                FROM Account';        
+        AgreementsBatch batch = new AgreementsBatch(q);
+        //Create here records that will be processed 
+        //in the ApexBatchable class.
+        Id batchprocessid = Database.executeBatch(batch, 10);       
+        test.stoptest();
+    }
+}

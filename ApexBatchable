@@ -1,6 +1,7 @@
 global class AgreementsBatch implements Database.Batchable<sObject>{
 
-        
+public String query;
+
         global AgreementsBatch(String q){
         
                 query = q;

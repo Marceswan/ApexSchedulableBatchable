@@ -4,8 +4,7 @@ public String query;
     
     global ApexSchedulable(){
     
-        query = 'SELECT Name
-                 FROM Account';  
+        query = 'SELECT Name FROM Account';  
     }
     
     global void execute(SchedulableContext SC){
@@ -14,15 +13,4 @@ public String query;
         ApexBatchable batch = new ApexBatchable(schedule.query);
         database.executebatch(batch,10);
     }
-
-	static testMethod void testApexSchedulable(){
-	
-		test.starttest();
-		String q = 'SELECT Name
-                FROM Account';
-		AgreementsSchedule t = new AgreementsSchedule();
-    t.execute(null);
-		system.assertEquals(t.query, q);
-    test.stoptest();
-	}
 }

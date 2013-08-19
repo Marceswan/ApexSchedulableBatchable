@@ -1,0 +1,12 @@
+@isTest
+public ApexSchedulableTest {
+	static void testApexSchedulable(){
+	
+		test.starttest();
+		String q = 'SELECT Name
+                FROM Account';
+		AgreementsSchedule t = new AgreementsSchedule();
+    t.execute(null);
+		system.assertEquals(t.query, q);
+    test.stoptest();
+}

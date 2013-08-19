@@ -1,16 +1,16 @@
 global class ApexSchedulable implements Schedulable{
-    
+
 public String query;
-    
-    global ApexSchedulable(){
-    
-        query = 'SELECT Name FROM Account';  
-    }
-    
-    global void execute(SchedulableContext SC){
+
+        global ApexSchedulable(){
         
-        ApexSchedulable schedule = new ApexSchedulable();
-        ApexBatchable batch = new ApexBatchable(schedule.query);
-        database.executebatch(batch,10);
-    }
+                query = 'SELECT Name FROM Account';  
+        }
+
+        global void execute(SchedulableContext SC){
+        
+                ApexSchedulable schedule = new ApexSchedulable();
+                ApexBatchable batch = new ApexBatchable(schedule.query);
+                database.executebatch(batch,10);
+        }
 }

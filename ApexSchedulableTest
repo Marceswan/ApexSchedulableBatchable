@@ -4,9 +4,10 @@ public ApexSchedulableTest {
 	
 		test.starttest();
 		String q = 'SELECT Name
-                FROM Account';
+		FROM Account';
 		AgreementsSchedule t = new AgreementsSchedule();
-    t.execute(null);
+		    t.execute(null);
 		system.assertEquals(t.query, q);
-    test.stoptest();
+		test.stoptest();
+	}
 }

@@ -1,5 +1,6 @@
+@isTest
 public ApexBatchableTest{    
-        static testMethod void testAgreementsBatch(){
+        static void testAgreementsBatch(){
         
                 test.starttest();
                 String q = 'SELECT Name FROM Account';        

@@ -2,25 +2,29 @@ global class AgreementsBatch implements Database.Batchable<sObject>{
 
 public String query;
 
-        global AgreementsBatch(String q){
+    global AgreementsBatch(String q){
+    
+        query = q;
+    }
+    
         
-                query = q;
-        }
+    global Database.QueryLocator start(Database.BatchableContext BC){
+    
+        return Database.getQueryLocator(query);
+    }
+    
         
-        global Database.QueryLocator start(Database.BatchableContext BC){
-        
-                return Database.getQueryLocator(query);
-        }
-        
-        global void execute(Database.BatchableContext BC, List<sObject> listSObjects){
-        
-                //Process records here
-                //within the scope given.
-        }
-        
-        global void finish(Database.BatchableContext BC) {
-        
-                //Post-process here
-                //eg.: email after process
-        }
+    global void execute(Database.BatchableContext BC, 
+                        List<sObject> listSObjects){
+    
+        //Process records here
+        //within the scope given.
+    }
+    
+    
+    global void finish(Database.BatchableContext BC) {
+    
+        //Post-process here
+        //eg.: email after process
+    }
 }

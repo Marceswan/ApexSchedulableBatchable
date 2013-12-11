@@ -1,8 +1,8 @@
-global class AgreementsBatch implements Database.Batchable<sObject>{
+global class ApexBatchable implements Database.Batchable<sObject>{
 
 public String query;
 
-    global AgreementsBatch(String q){
+    global ApexBatchable(String q){
     
         query = q;
     }

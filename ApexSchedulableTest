@@ -1,12 +1,16 @@
 @isTest
 public class ApexSchedulableTest {
-	static void testApexSchedulable(){
+
+
+	static testMethod void testApexSchedulable(){
 
 		test.starttest();
 		String q = 'SELECT Name FROM Account';
 		ApexSchedulable t = new ApexSchedulable();
-		t.execute(null);
-		system.assertEquals(t.query, q);
+		t.query = q;
+		String sch = '0 0 5 ? * * * ';
+		String jobId = System.schedule('Test', sch, t);
+		system.assertNotEquals(null, jobId);
 		test.stoptest();
 	}
 }

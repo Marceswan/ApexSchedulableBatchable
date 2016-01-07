@@ -1,0 +1,15 @@
+@isTest
+public class ApexBatchableTest{
+
+
+    static testMethod void testAgreementsBatch(){
+
+        test.starttest();
+        //Create here records that will be processed
+        //in the ApexBatchable class.
+        String q = 'SELECT Name FROM Account';
+        ApexBatchable batch = new ApexBatchable(q);
+        Id batchprocessid = Database.executeBatch(batch, 10);
+        test.stoptest();
+    }
+}
